@@ -1,14 +1,18 @@
 # Credit_Risk
---------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+
 # Project Description
---------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+
 Loan defaults are a big deal at banks and since loans are the driving business of every bank 
 it is important to make good judgements when deciding to lend money or not. This project is an
 attempt to improve a banks by loan making decisions and accuracy when predicting if a loan will
 default
 
---------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+
 # Goal
+
 * Find the drivers of loan default 
 * Create a machine a learning model that improves the accuracy of predicting if a loan will
 default
@@ -16,11 +20,13 @@ default
 
 --------------------------------------------------------------------------------------------------------------------------------
 # Key Questions
+
 * Whats our customer demographic and does it play a role in loan defaults?
 * Is income the only factore to consider if a loan will defualt?
 * Do interest rates decide if a loan will default?
 --------------------------------------------------------------------------------------------------------------------------------
 # Plan of Action
+
 * Aquire the data fro Kaggle
 
 * Prepare the data
@@ -48,10 +54,11 @@ default
 
 * Draw Conclusions
 
---------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+
 # Data Dictionary
 
-**Feature                             Definition
+**Feature**                 |            **Definition**
 
 income                      |         Annual Income
 
@@ -85,7 +92,7 @@ loan_intent_VENTURE         |         Venture Loan
 
 default_on_file_Y           |         Has customer ever defaulted before
 
---------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
 
 # Steps to Reproduce
 
@@ -97,7 +104,7 @@ default_on_file_Y           |         Has customer ever defaulted before
 * Download prepare.py from this repo
 * Put data into a notebook and copy code from repo into your own notebook.
 
---------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
 
 # Conclusions
 
@@ -106,7 +113,7 @@ default_on_file_Y           |         Has customer ever defaulted before
 * Default was higher at higher loan amounts but was not a big difference compared to loans that are current.
 * The percent the loan makes up of the actual income is even more of a deciding factor in a loan defaultin
 
---------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
 
 # Recommendations
 
