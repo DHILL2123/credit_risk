@@ -54,20 +54,35 @@ default
 **Feature                             Definition
 
 income                      |         Annual Income
+
 emp_length                  |         Employment Length in Years
+
 loan_grade                  |         Loan Grade(A-G)
+
 loan_amnt                   |         Loan Amount
+
 loan_int_rate               |         Loan Interest Rate
+
 loan_percent_income         |         Loan Percent of Income
+
 cred_history                |         Credit History Length
+
 home_ownership_OTHER        |         Not, RENT, OWN, or MORTGAGE
+
 home_ownership_OWN          |         Owns The Residence
+
 home_ownership_RENT         |         Renting The Residence
+
 loan_intent_EDUCATION       |         Educational Loan
+
 loan_intent_HOMEIMPROVEMENT |         Home Improvement Loan
+
 loan_intent_MEDICAL         |         Medical Loan
+
 loan_intent_PERSONAL        |         Personal Loan
+
 loan_intent_VENTURE         |         Venture Loan
+
 default_on_file_Y           |         Has customer ever defaulted before
 
 --------------------------------------------------------------------------------------------------------------------------------
