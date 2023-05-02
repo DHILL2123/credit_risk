@@ -27,6 +27,9 @@ from sklearn.tree import DecisionTreeClassifier, plot_tree, export_text
         #plt.show()
 
 def outlier_check(df):
+    '''
+    Returns a box plot of all columns showing outtliers in each column
+    '''
     for col in df.columns:
         sns.boxplot(df[col])
         plt.title(col)
@@ -106,8 +109,11 @@ def loan_int_rate(train):
     plt.xlabel("Loan Status", fontsize = 15)
     plt.legend()
     plt.show()
-    
+
 def plot_distribution(df):
+    ''' 
+    Plots distribution of home ownership and number of customers 
+    '''
     # plot distribution of values in Marks column
     df.person_home_ownership.value_counts().plot.bar()
     plt.title('Home Ownership Distribution', fontsize = 20)
@@ -124,11 +130,18 @@ def hist_fig(train):
     plt.show()
 
 def corr(df):
+    '''
+    Returns the feature correlation to target feature
+    '''
     cor_target = df.corrwith(df["loan_status"])
     cor_target.sort_values(axis = 0, ascending = False)
     print(cor_target.sort_values(axis = 0, ascending = False))
 
 def loan_perc_income(train):
+    '''
+    Plots the loan status and loan percent of income. showing a distribution of defaults and non 
+    defaults at certain loan percents
+    '''
     x = train[["loan_status", "loan_percent_income"]]
 
     f, ax = plt.subplots(figsize=(16, 9));
@@ -145,6 +158,10 @@ def loan_perc_income(train):
     plt.show()
 
 def loan_amount(train):
+    '''
+    Plots the loan status and loan amount. showing the distribution of defaults and non defaults based on 
+    loan amounts
+    '''
     x = train[["loan_status", "loan_amnt"]]
     f, ax = plt.subplots(figsize=(16, 9));
     sns.barplot(x = "loan_status", y = "loan_amnt", data = x, palette = 'winter', ci=False);
@@ -160,6 +177,10 @@ def loan_amount(train):
     plt.show()
 
 def income_status(train):
+    '''
+     Plots the loan status and income. showing the distribution of defaults and non defaults based on 
+    customer income
+    '''
     x = train[["loan_status", "income"]]
     f, ax = plt.subplots(figsize=(16, 9));
     sns.barplot(x = "loan_status", y = "income", data = x, palette = 'winter', ci=False);
@@ -175,6 +196,10 @@ def income_status(train):
     plt.show()
 
 def renters(train):
+    '''
+     Plots the loan status and home owners who rent. showing the distribution of defaults and non defaults based on 
+    home owners who rent.
+    '''
     x = train[["loan_status", "home_ownership_RENT"]]
     f, ax = plt.subplots(figsize=(16, 9));
     sns.barplot(x = "loan_status", y = "home_ownership_RENT", data = x, palette = 'winter', ci=False);
@@ -190,6 +215,9 @@ def renters(train):
     plt.show()
 
 def hypothesis_rent(train):
+    '''
+    Returns results of chi squared test between home owners and loan status. P value and hypothesis results. 
+    '''
     #Lets run a chi squared to compare proportions, to have more confidence
     #set variable alpha to 0.05
     alpha = 0.05
@@ -217,6 +245,9 @@ def hypothesis_rent(train):
     p
 
 def hypothesis_loan_int_rate(train):
+    ''''
+    Returns results of chi squared test between loan interest rate and loan status. P value and hypothesis results.
+    '''
     #Lets run a chi squared to compare proportions, to have more confidence
     #set variable alpha to 0.05
     alpha = 0.05
@@ -244,6 +275,9 @@ def hypothesis_loan_int_rate(train):
     p
 
 def hypothesis_loan_perc_income(train):
+    ''''
+    Returns results of chi squared test between loan percent of income and loan status. P value and hypothesis results.
+    '''
     #Lets run a chi squared to compare proportions, to have more confidence
     #set variable alpha to 0.05
     alpha = 0.05
@@ -271,6 +305,9 @@ def hypothesis_loan_perc_income(train):
     p
 
 def hypothesis_income_status(train):
+    ''''
+    Returns results of chi squared test between income and loan status. P value and hypothesis results.
+    '''
     #Lets run a chi squared to compare proportions, to have more confidence
     #set variable alpha to 0.05
     alpha = 0.05
@@ -298,6 +335,9 @@ def hypothesis_income_status(train):
     p
 
 def hypothesis_loan_amnt(train):
+    ''''
+    Returns results of chi squared test between loan amount and loan status. P value and hypothesis results.
+    '''
     #Lets run a chi squared to compare proportions, to have more confidence
     #set variable alpha to 0.05
     alpha = 0.05
@@ -325,11 +365,18 @@ def hypothesis_loan_amnt(train):
     p
 
 def get_baseline(df):
+    '''
+    Generates the baseline prediction based on the most frequent value in the target column
+    '''
     df['baseline_prediction'] = 0
     baseline_accuracy = (df.baseline_prediction == df.loan_status).mean()
     print(f'{baseline_accuracy:.2%}')
 
 def dt_model(df,train,X_train,y_train,X_val,y_val,X_test,y_test):
+    '''
+    Loops through creating 10 decision tree machine learning models comparing each train on validate for each max depth.
+    The best model is returned to be used on the test dataset to reveal the models performance
+    '''
     df['baseline_prediction'] = 0
     baseline_accuracy = (df.baseline_prediction == df.loan_status).mean()
     # Define a list of hyperparameters to try
